@@ -11,5 +11,8 @@ export class ApplyLeaveComponent implements OnInit {
 
   ngOnInit() {
   }
-
+public apply()
+{
+  
+}
 }
