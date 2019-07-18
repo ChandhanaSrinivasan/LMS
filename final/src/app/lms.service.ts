@@ -1,31 +1,35 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { User} from './user';
-import { InMemoryDataService} from './in-memory-data.service';
+import { User } from './user';
+import { USERS } from './mock';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LmsService {
-  
-  user: users[];
-  username: string;
-  password: string;
-  private usersUrl = 'api/users';
+  /*users = USERS;
+  selectedUser: User;*/
+
   constructor(
-    private http: HttpClient,
+    
   ) { }
-
-  public credentialValidation(username:string,password:string)
-  {
-    if((this.username==InMemoryDataService.user.username)&&(this.password==InMemoryDataService.user.password))
-    {
-      return true;
-    }
-    else{
-      return false;
-    }
+ /* onSelect(user: User): void {
+    this.selectedUser = user;
   }
+  public username= this.user[0].username;
+  public password= this.user[0].password;
 
+
+  public credentialValidation(username:string,password: string)
+{
+ 
+  console.log(this.username);
+  console.log(this.password);
+}
+*/
+
+getUsers(): Observable<User[]> {
+  return of(USERS);
+}
   
 }
