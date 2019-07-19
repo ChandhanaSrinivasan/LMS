@@ -1,12 +1,10 @@
 <div class="bg">
-    <form class="style">
-<input [(ngModel)]="user.empId" type="text" placeholder="Enter your Employee Id" />
+<input [(ngModel)]="user[0].empId" type="text" placeholder="Enter your Employee Id" />
 <br><br>        
-<input [(ngModel)]="user.username" type="text" placeholder="Enter your name" />
+<input [(ngModel)]="user[0].username" type="text" placeholder="Enter your name" />
 <br><br>
-<input [(ngModel)]="user.password" type="password" placeholder="Enter your password" />
+<input [(ngModel)]="user[0].password" type="password" placeholder="Enter your password" />
 <br><br>
 <li *ngFor="let user of users" (click)="onSelect(user)"></li>
 <button type="submit" class="loginButton" (click)="loginValidation()">Login</button>
-</form>
 </div>

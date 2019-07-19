@@ -7,17 +7,17 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class LmsService {
-  /*users = USERS;
-  selectedUser: User;*/
+  users = USERS;
+  selectedUser: User;
 
   constructor(
     
   ) { }
- /* onSelect(user: User): void {
+  onSelect(user: User): void {
     this.selectedUser = user;
   }
-  public username= this.user[0].username;
-  public password= this.user[0].password;
+  public username= this.users[0].username;
+  public password= this.users[0].password;
 
 
   public credentialValidation(username:string,password: string)
@@ -26,7 +26,6 @@ export class LmsService {
   console.log(this.username);
   console.log(this.password);
 }
-*/
 
 getUsers(): Observable<User[]> {
   return of(USERS);

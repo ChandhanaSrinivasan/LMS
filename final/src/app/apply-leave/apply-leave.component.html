@@ -1,6 +1,7 @@
 <div class="bg"><form class="center">
         From:
-        <input type="date" name="fromDate" required>
+        
+        <input [(ngModel)]="date" type="date" placeholder="Enter your Employee Id" />
         <br>
         To:
         <input type="date" name="toDate" required>
@@ -28,4 +29,5 @@
         <br>
         <button type="reset" class="button">Reset</button>
     </form>
+    
     </div>

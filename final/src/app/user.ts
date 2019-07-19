@@ -1,6 +1,6 @@
 export class User{
-    public empId : number;
-    public username : string;
-    public password : string;
+    empId : number;
+    username : string;
+    password : string;
 
 }
