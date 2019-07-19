@@ -1,0 +1,39 @@
+<div class="bg">
+    <form class="center" #applyLeave="ngForm" >
+        {{applyLeave.value | json}}
+        <hr />
+       {{userModel | json}}
+       <br>
+    From:
+    <input type="date" name="fromDate" [(ngModel)]="userModel.fromDate" required>
+    <br>
+    To:
+    <input type="date" name="toDate" [(ngModel)]="userModel.toDate" required>
+    <br>
+    No. of Days: 
+    <input type="number" name="NoOfDays" [(ngModel)]="userModel.noOfDays" required>
+    <br>
+    Type of Leave:
+    <div class="style">
+     
+    <select name="leaveType"  [(ngModel)]="userModel.leaveType" >
+
+            <option value="personalLeave">Personal Leave</option>
+            <option value="compensatoryLeave">Compensatory Leave</option>
+            <option value="lopLeave">LOP Leave</option>
+            <option value="carryForwardLeave">Carry Forword Leave</option>
+          </select>
+    
+</div>
+<br>
+
+    Description:
+    <input type="text" required  name="description" [(ngModel)]="userModel.description">
+    <br>
+    <button type="submit" class="button" ngSubmit="apply()">Apply</button>
+    <br>
+    <button type="reset" class="button">Reset</button>
+</form>
+
+</div>
+<!--#description="ngModel" [class.is-invalid]="description.invalid && description.touched" name="description"  [(ngModel)]="userModel.description" -->
