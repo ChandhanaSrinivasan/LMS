@@ -1,0 +1,34 @@
+<div class="bg">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <input [class.is-invalid]="empIdErr.invalid && empIdErr.touched" formControlName="empId" type="text" placeholder="Enter your employee id" class="form-control">
+
+   <div *ngIf="empIdErr.invalid && empIdErr.touched">
+       <small *ngIf="empIdErr.errors?.required" class="text-danger">Employee Id is required</small>
+
+   </div>
+
+    <br>
+
+    <input [class.is-invalid]="usernameErr.invalid && usernameErr.touched" formControlName="username" type="text" placeholder="Enter your username" class="form-control">
+
+  
+   <div *ngIf="usernameErr.invalid && usernameErr.touched">
+        <small *ngIf="usernameErr.errors?.required" class="text-danger">Username is required</small>
+        </div>
+
+    <br>
+
+    <input [class.is-invalid]="passwordErr.invalid && passwordErr.touched" formControlName="password" type="password" placeholder="Enter your password" class="form-control">
+
+ 
+
+  <div *ngIf="passwordErr.invalid && passwordErr.touched">
+        <small *ngIf="passwordErr.errors?.required" class="text-danger">Password is required</small>
+        </div>
+    <br>
+
+    <button type="submit" class="loginButton" >Login</button>
+
+</form>
+{{loginForm.value | json}}
+</div>
