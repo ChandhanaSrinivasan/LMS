@@ -9,8 +9,8 @@ export class InMemoryDataService implements InMemoryDbService {
   constructor() { }
   createDb() {
     const users = [
-      { empId: '1101', username: 'Dr.Nice', password: 'welcome', noOfDays: 2 , role: 'employee'},
-      { empId: '1102', username: 'Narco', password: 'welcome', noOfDays: 2 , role: 'primary manager'}
+      { empId: '1101', username: 'Dr.Nice', password: '123456', noOfDays: 2 , role: 'employee'},
+      { empId: '1102', username: 'Narco', password: '789546', noOfDays: 1 , role: 'primary manager'}
     ];
     return {users};
   }
