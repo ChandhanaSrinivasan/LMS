@@ -1,42 +1,37 @@
 <div class="bg">
-        <form [formGroup]="applyFrom" (ngSubmit)="apply(applyFrom.value)">
+  <form [formGroup]="applyForm" (ngSubmit)="apply(applyForm.value)">
+    
+    <div class="form-group">
+      <label>From:</label>
+      <input type="date" name="formDate" formControlName="fromDate">
+    </div>
 
-            <div class="form-group">
-                <label>From:</label>
-                <input type="date"  name="fromDate"  formControlName="fromDate">
-              </div>
+    <div class="form-group">
+      <label>To:   </label>
+      <input type="date" name="toDate" formControlName="toDate" >
+    </div>
 
-              <div class="form-group">
-                    <label>To:</label>
-                    <input type="date"  name="toDate"  formControlName="toDate">
-                  </div>
-
-                  <div class="form-group">
-                        <label>No. of Days:</label>
-                        <input type="number"  name="noOfDays"  formControlName="noOfDays">
-                      </div>
-
-                      <div class="form-group" id=#input>
-                        <label>Type of Leave:</label>
-
-                     <select formControlName="typeOfLeave">
-                        <option value="personalLeave">Personal Leave</option>
-                        <option value="compensatoryLeave">Compensatory Leave</option>
-                        <option value="lopLeave">LOP Leave</option>
-                        <option value="carryForwardLeave">Carry Forword Leave</option>
-                        </select>
-
-                      </div>
+    <div class="form-group">
+      <label>No. of Days:</label>
+      <input type="text" name="noOfDays" formControlName="noOfDays">
+    </div>
+    
+    <div class="form-group">
+      <label>Type of Leave:</label>
+      <select>
+        <option>Personal</option>
+        <option>Compensatory</option>
+        <option>LOP</option>
+        <option>Carry Forward</option>
+      </select>
+    </div>
 <br>
-                      <div class="form-group">
-                            <label>Description:</label>
-                            <input type="text"  name="description"  formControlName="description">
-                          </div>
-          <button type="submit" class="applyButton"> Apply</button>  
-          <br>  
-          <button type="reset" class="applyButton">Reset</button>     
-        </form>
-
+    <div class="form-group">
+        <label>Descritpion:</label>
+        <input type="text" name="description" formControlName="description">
       </div>
-
-      
+  <button class="applyButton" type="submit">Apply</button>
+  <br>
+  <button class="applyButton" type="reset">Reset</button>
+  </form>
+</div>

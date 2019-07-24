@@ -1,5 +1,6 @@
 {
   "extends": "../tsconfig.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "compilerOptions": {
     "outDir": "../out-tsc/e2e",
     "module": "commonjs",

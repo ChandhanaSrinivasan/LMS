@@ -43,14 +43,12 @@ export class AuthenticationService {
     );
   }
 
-  /*apply(formData: NgForm) {
+  apply(formData: NgForm) {
     return this.http.post<any>( `${this.apiUrl}/apply-leave`, formData).pipe(
-      tap(userDetail => {
-        if (userDetail && userDetail.token) {
-          localStorage.setItem('currentUser', JSON.stringify(userDetail));
-        }
+      tap(user => {
+        console.log(user);
       }),
       catchError(this.handleError('apply-leave', []))
     );
-    }*/
+  }
   }

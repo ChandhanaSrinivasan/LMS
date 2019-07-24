@@ -12,6 +12,18 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   returnUrl: string;
+  get empIdErr()
+  {
+    return this.loginForm.get('empId')
+  }
+  get usernameErr()
+  {
+    return this.loginForm.get('username')
+  }
+  get passwordErr()
+  {
+    return this.loginForm.get('password')
+  }
 
   constructor(private fb: FormBuilder,
     private auth: AuthenticationService,
