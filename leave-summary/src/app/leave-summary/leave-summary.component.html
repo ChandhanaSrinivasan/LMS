@@ -1,0 +1,27 @@
+<div align='center'><h1>List of Users</h1></div>
+
+
+<table class ="table table-striped" >
+  <tr *ngFor="let u of users">
+    <td>
+      {{u.id}}
+    </td>
+    <td>
+      {{u.name}}
+    </td>
+    <td>
+      {{u.model}}
+    </td>
+
+  </tr>
+</table>
+
+<br><br>
+
+    <input type="number" class="form-control" [(ngModel)] = 'idtoUpdate' placeholder="Enter User ID to update" />
+    <button class="btn btn-info" (click)= 'updateUser()'>Update User</button>
+
+    
+
+<br><br>
+    <button class="btn btn-danger" [routerLink]="['/home']" routerLinkActive="router-link-active" > Go Back</button>
