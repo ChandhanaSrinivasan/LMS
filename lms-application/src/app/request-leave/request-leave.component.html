@@ -1,0 +1,26 @@
+<table class="bg">
+    <tr>
+      <th>Username</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Days</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+    
+    <tr *ngFor="let request of requestLeave" >
+      <td>{{ request.username }}</td>
+      <td>{{ request.from }}</td>
+      <td>{{ request.to }}</td>
+      <td>{{ request.days }}</td>
+      <td>{{ request.type }}</td>
+      <td>{{ request.description }}</td>
+      <button (click)="deleteRequest(request.username)">x</button>
+      <td>
+      
+      
+      </td>
+    </tr>
+  </table>
+     

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-leave-summary',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./leave-summary.component.css']
 })
 export class LeaveSummaryComponent implements OnInit {
+  leaveDetails: any[];
+  
 
-  constructor() { }
+  constructor(private auth: AuthenticationService,) { }
 
   ngOnInit() {
+    this.auth.getLeaveDetails().subscribe((data : any[])=>{
+      console.log(data);
+      this.leaveDetails = data;
+  })
   }
 
 }

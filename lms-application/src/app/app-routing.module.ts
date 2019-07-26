@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ApplyLeaveComponent } from './apply-leave/apply-leave.component';
 import { LeaveSummaryComponent } from './leave-summary/leave-summary.component';
-
+import { RequestLeaveComponent } from './request-leave/request-leave.component';
 
 
 
@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent},
   { path: 'apply-leave', component: ApplyLeaveComponent},
   { path: 'leave-summary', component: LeaveSummaryComponent},
+  { path: 'request-leave', component: RequestLeaveComponent},
 ];
 
 

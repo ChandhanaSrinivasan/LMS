@@ -18,19 +18,20 @@
     
     <div class="form-group">
       <label>Type of Leave:</label>
-      <select>
+      <input type="text" name="typeOfLeave" formControlName="typeOfLeave">
+     <!-- <select>
         <option>Personal</option>
         <option>Compensatory</option>
         <option>LOP</option>
         <option>Carry Forward</option>
-      </select>
+      </select>-->
     </div>
 <br>
     <div class="form-group">
         <label>Descritpion:</label>
         <input type="text" name="description" formControlName="description">
       </div>
-  <button class="applyButton" type="submit">Apply</button>
+  <button class="applyButton" [disabled]="!applyForm.valid" type="submit">Apply</button>
   <br>
   <button class="applyButton" type="reset">Reset</button>
   </form>

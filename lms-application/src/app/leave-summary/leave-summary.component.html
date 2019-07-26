@@ -1,15 +1,20 @@
-<div class="bg">
-    <table class="table">
-        <tr>
-            <th>Sno.</th>
-            <th>From</th>
-            <th>To</th>
-            <th>No. of Days</th>
-            <th>Type of Leave</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <th>sfgs</th>
-        </tr>
-    </table>
-</div> 
+<table class="bg">
+    <tr>
+      <th>Username</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Days</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+    <tr *ngFor="let leave of leaveDetails" >
+      <td>{{ leave.username }}</td>
+      <td>{{ leave.from }}</td>
+      <td>{{ leave.to }}</td>
+      <td>{{ leave.days }}</td>
+      <td>{{ leave.type }}</td>
+      <td>{{ leave.description }}</td>
+    </tr>
+  </table>
+     

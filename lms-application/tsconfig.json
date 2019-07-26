@@ -1,5 +1,7 @@
 {
   "compileOnSave": false,
+
+
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
@@ -17,10 +19,11 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ] 
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "strictInjectionParameters": true,
+    
   }
 }

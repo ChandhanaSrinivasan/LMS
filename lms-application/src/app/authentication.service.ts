@@ -6,10 +6,14 @@ import { Observable , of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+  getUsers() {
+    throw new Error("Method not implemented.");
+  }
   
   
 
@@ -24,7 +28,7 @@ export class AuthenticationService {
       // TODO: better job of transforming error for user consumption
       console.log(`${operation} failed: ${error.message}`);
       // Let the app keep running by returning an empty result.
-      return of(result as T);
+      return of(result as T); 
     };
   }
 
@@ -51,4 +55,17 @@ export class AuthenticationService {
       catchError(this.handleError('apply-leave', []))
     );
   }
+
+   getRequest(){ 
+    return this.http.get(this.apiUrl + 'requestLeave');
+}
+ deleteRequest(username){
+  return this.http.delete(`${this.apiUrl + 'requestLeave'}/${username}`);
+}
+ getLeaveDetails(){ 
+  return this.http.get(this.apiUrl + 'leaveDetails');
+}
+
+
+  
   }

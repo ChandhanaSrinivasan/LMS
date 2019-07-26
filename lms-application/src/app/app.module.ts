@@ -14,6 +14,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ApplyLeaveComponent } from './apply-leave/apply-leave.component';
 import { LeaveSummaryComponent } from './leave-summary/leave-summary.component';
+import { RequestLeaveComponent } from './request-leave/request-leave.component';
 
 
 
@@ -29,6 +30,8 @@ import { LeaveSummaryComponent } from './leave-summary/leave-summary.component';
     ApplyLeaveComponent,
     
     LeaveSummaryComponent,
+    
+    RequestLeaveComponent,
     
   ],
   imports: [

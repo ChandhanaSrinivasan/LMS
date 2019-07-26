@@ -12,14 +12,6 @@
     text-align: center;
 }
 
-
-
-.style{
-  margin:0 auto;
-  width:75%;
-  text-align:center;
-} 
-  
 .applyButton {
   background-color: rgb(252, 45, 45);
   color: white;
@@ -31,7 +23,6 @@
   opacity: 0.9;
 }
    
-/* Full-width input fields */
 input[type=text], input[type=password],input[type=date],input[type=number] {
   width: 25%;
   padding: 15px;
@@ -40,13 +31,3 @@ input[type=text], input[type=password],input[type=date],input[type=number] {
   border: none;
   background: #c0c0c0;
 }
- #input
- {
-  width: 25%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #c0c0c0;
- }
-   
