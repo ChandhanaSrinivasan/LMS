@@ -22,6 +22,6 @@ deleteRequest(username: string)
 {
   this.auth.deleteRequest(username).subscribe(()=>{
     alert("Request Deleted");
-}
+});
 }
 }
