@@ -38,14 +38,14 @@ export class LoginComponent implements OnInit {
       'password' : [null, [Validators.required]],
     });
 
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home' ;
+    
 
   }
 
   login(formData: NgForm) {
-    return this.auth.login(formData).subscribe(
+     this.auth.login(formData).subscribe(
       (user) => {
-        console.log(user);
+        alert("Login Successful!")
         this.router.navigate(['home']);
       });
   }

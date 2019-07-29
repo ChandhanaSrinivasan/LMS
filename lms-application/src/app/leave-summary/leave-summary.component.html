@@ -8,13 +8,21 @@
       <th>Description</th>
       
     </tr>
-    <tr *ngFor="let leave of leaveDetails" >
+   <!--<tr *ngFor="let leave of leaveDetails" >
       <td>{{ leave.username }}</td>
       <td>{{ leave.from }}</td>
       <td>{{ leave.to }}</td>
       <td>{{ leave.days }}</td>
       <td>{{ leave.type }}</td>
       <td>{{ leave.description }}</td>
-    </tr>
+    </tr>-->
+    <ul class="table">
+      <li *ngFor="let leave of leaveDetails">
+        <a >
+          <span class="table">{{ leave.username }}</span> {{ leave.from }}{{ leave.to }}{{ leave.days }}{{ leave.type }}{{ leave.description }}
+        </a>
+        
+      </li>
+    </ul>
   </table>
      

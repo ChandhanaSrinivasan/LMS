@@ -4,4 +4,5 @@ export class User {
     username: string;
     password: string;
     noOfDays: string;
+    token: string;
 }

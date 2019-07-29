@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable , of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { User } from './user';
+import { LeaveRequest } from './leaveRequest';
+import { LeaveDetails } from './leaveDetails';
 
 
 
@@ -11,14 +14,15 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  getUsers() {
-    throw new Error("Method not implemented.");
-  }
+ 
   
-  
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
-  apiUrl = 'api/users';
-
+ private urlUsers = 'api/users';
+ private  urlLeaveDetail='api/leaveDetails';
+  private urlRequest = 'api/requestLeave';  // URL to web api
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -36,7 +40,7 @@ export class AuthenticationService {
 
 
   login(formData: NgForm) {
-    return this.http.post<any>( `${this.apiUrl}/login`, formData).pipe(
+    return this.http.post<User>( `${this.urlUsers}/login`, formData).pipe(
       tap(user => {
         if (user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
@@ -48,7 +52,7 @@ export class AuthenticationService {
   }
 
   apply(formData: NgForm) {
-    return this.http.post<any>( `${this.apiUrl}/apply-leave`, formData).pipe(
+    return this.http.post<User>( `${this.urlUsers}/apply-leave`, formData).pipe(
       tap(user => {
         console.log(user);
       }),
@@ -56,16 +60,34 @@ export class AuthenticationService {
     );
   }
 
-   getRequest(){ 
-    return this.http.get(this.apiUrl + 'requestLeave');
-}
- deleteRequest(username){
-  return this.http.delete(`${this.apiUrl + 'requestLeave'}/${username}`);
-}
- getLeaveDetails(){ 
-  return this.http.get(this.apiUrl + 'leaveDetails');
-}
 
 
+
+getRequest (): Observable<LeaveRequest[]> {
+  return this.http.get<LeaveRequest[]>(this.urlRequest)
+    .pipe(
+      tap(_ => console.log('fetched user')),
+      catchError(this.handleError<LeaveRequest[]>('requestLeave', []))
+    );
+}
   
+/*deleteRequest(username){
+  return this.http.delete(`${this.urlRequest + 'requestLeave'}/${username}`);
+}*/
+deleteRequest (user: LeaveRequest | string): Observable<LeaveRequest> {
+  const username = typeof user === 'string' ? user : user.username;
+  const url = `${this.urlRequest}/${username}`;
+
+  return this.http.delete<LeaveRequest>(url, this.httpOptions).pipe(
+    tap(_ => console.log(`deleted user username=${username}`)),
+    catchError(this.handleError<LeaveRequest>('requestLeave'))
+  );
+}
+getLeaveDetails (): Observable<LeaveDetails[]> {
+  return this.http.get<LeaveDetails[]>(this.urlLeaveDetail)
+    .pipe(
+      tap(_ => console.log('fetched user')),
+      catchError(this.handleError<LeaveDetails[]>('leaveDetails', []))
+    );
+}
   }

@@ -1,4 +1,4 @@
-export class LeaveDeatails{
+export class LeaveDetails{
     from : string;
     to: string;
     noOfDays: number;
