@@ -71,9 +71,7 @@ getRequest (): Observable<LeaveRequest[]> {
     );
 }
   
-/*deleteRequest(username){
-  return this.http.delete(`${this.urlRequest + 'requestLeave'}/${username}`);
-}*/
+
 deleteRequest (user: LeaveRequest | string): Observable<LeaveRequest> {
   const username = typeof user === 'string' ? user : user.username;
   const url = `${this.urlRequest}/${username}`;
@@ -87,7 +85,10 @@ getLeaveDetails (): Observable<LeaveDetails[]> {
   return this.http.get<LeaveDetails[]>(this.urlLeaveDetail)
     .pipe(
       tap(_ => console.log('fetched user')),
-      catchError(this.handleError<LeaveDetails[]>('leaveDetails', []))
+      catchError(this.handleError<LeaveDetails[]>('leaveDetails'))
     );
 }
+
+
+
   }
