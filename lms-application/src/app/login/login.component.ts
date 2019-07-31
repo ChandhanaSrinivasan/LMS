@@ -36,11 +36,10 @@ export class LoginComponent implements OnInit {
 
   login(formData: NgForm) {
     this.submitted = true;
-    
+   
      this.auth.login(formData).subscribe( 
       (user) => {
-        alert("fgh");
-        this.router.navigate(['']);
+        this.router.navigate(['home']);
        
       });
     

@@ -15,7 +15,6 @@ import { LeaveDetails } from './leaveDetails';
 })
 export class AuthenticationService {
  
-  
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -35,6 +34,7 @@ export class AuthenticationService {
       return of(result as T); 
     };
   }
+  
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -42,7 +42,9 @@ export class AuthenticationService {
   login(formData: NgForm) {
     return this.http.post<User>( `${this.urlUsers}/login`, formData).pipe(
       tap(user => {
-        if (user && user.token) {
+        alert("sdfs");
+        console.log(formData);
+        if (user) {
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
 
@@ -61,32 +63,30 @@ export class AuthenticationService {
   }
 
 
-
+  getleaveDetails (): Observable<LeaveDetails[]> {
+    return this.http.get<LeaveDetails[]>(this.urlLeaveDetail)
+      .pipe(
+        tap(_ => console.log('fetched leave Details')),
+        catchError(this.handleError<LeaveDetails[]>('getleaveDetails', []))
+      );
+  }
 
 getRequest (): Observable<LeaveRequest[]> {
   return this.http.get<LeaveRequest[]>(this.urlRequest)
     .pipe(
       tap(_ => console.log('fetched user')),
-      catchError(this.handleError<LeaveRequest[]>('requestLeave', []))
+      catchError(this.handleError<LeaveRequest[]>('getRequest', []))
     );
 }
   
-
 deleteRequest (user: LeaveRequest | string): Observable<LeaveRequest> {
-  const username = typeof user === 'string' ? user : user.username;
-  const url = `${this.urlRequest}/${username}`;
+  const id = typeof user === 'string' ? user : user.username;
+  const url = `${this.urlRequest}/${user}`;
 
   return this.http.delete<LeaveRequest>(url, this.httpOptions).pipe(
-    tap(_ => console.log(`deleted user username=${username}`)),
-    catchError(this.handleError<LeaveRequest>('requestLeave'))
+    tap(_ => console.log(`deleted user username=${user}`)),
+    catchError(this.handleError<LeaveRequest>('deleteRequest'))
   );
-}
-getLeaveDetails (): Observable<LeaveDetails[]> {
-  return this.http.get<LeaveDetails[]>(this.urlLeaveDetail)
-    .pipe(
-      tap(_ => console.log('fetched user')),
-      catchError(this.handleError<LeaveDetails[]>('leaveDetails'))
-    );
 }
 
 

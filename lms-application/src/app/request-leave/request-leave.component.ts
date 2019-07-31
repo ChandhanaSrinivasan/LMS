@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
+import { LeaveRequest } from '../leaveRequest';
 
 @Component({
   selector: 'app-request-leave',
@@ -12,16 +13,27 @@ export class RequestLeaveComponent implements OnInit {
   constructor( private auth: AuthenticationService,) { }
 
   ngOnInit() {
-    this.auth.getRequest().subscribe((data : any[])=>{
-      console.log(data);
-      this.requestLeave = data;
-  })
+    this.getRequest();
   
 } 
-deleteRequest(username: string)
+getRequest(): void {
+  this.auth.getRequest()
+  .subscribe(requestLeave => this.requestLeave = requestLeave);
+}
+
+
+/*deleteRequest(username: string)
 {
   this.auth.deleteRequest(username).subscribe(()=>{
     alert("Request Deleted");
 });
 }
+*/
+deleteRequest(user: LeaveRequest): void {
+  this.requestLeave = this.requestLeave.filter(h => h !== user);
+  this.auth.deleteRequest(user).subscribe(()=>{
+    alert("Request Deleted");
+});
+}
+
 }

@@ -9,26 +9,12 @@
       
     </tr>
   
-    <!--<li *ngFor="let request of request" >
-      {{ request.username }}
-      {{ request.from }}
-      {{ request.to }}
-      {{ request.days }}
-      {{ request.type }}
-      {{ request.description }}
-      <button (click)="deleteRequest(request.username)">x</button>
-      
-      </li>
-    -->
-    <ul class="request">
+   </table>
+    <ul >
       <li *ngFor="let request of requestLeave">
-        <a>
-          <span class="badge">{{ request.username }}</span>{{ request.from }}{{ request.to }}{{ request.days }}{{ request.type }}{{ request.description }
-        </a>
+        {{request.username}}| {{request.from}}| {{request.to}}| {{request.days}}| {{request.type}}| {{request.description}}
         <button class="delete"
-          (click)="deleteRequest(request.username)">x</button>
+          (click)="deleteRequest(request)">x</button>
       </li>
     </ul>
     
-  </table>
-     

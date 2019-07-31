@@ -1,8 +1,8 @@
-export class LeaveDetails{
+export class LeaveDetails {
     from : string;
-    to: string;
-    noOfDays: number;
-    typeOfLeave: string;
-    description: string;
-    token : string;
-}
+    to : string;
+    days : number;
+    type : string;
+    description : string;
+  }
+  
