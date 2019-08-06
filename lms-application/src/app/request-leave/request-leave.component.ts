@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
 import { LeaveRequest } from '../leaveRequest';
 
+
 @Component({
   selector: 'app-request-leave',
   templateUrl: './request-leave.component.html',
@@ -9,31 +10,32 @@ import { LeaveRequest } from '../leaveRequest';
 })
 export class RequestLeaveComponent implements OnInit {
   requestLeave: any[] = [];
-  
-  constructor( private auth: AuthenticationService,) { }
+  inputs = [];
+
+  add(newLeave: string) {
+    this.inputs.push(newLeave);
+  }
+  constructor( private auth: AuthenticationService) { }
 
   ngOnInit() {
     this.getRequest();
-  
-} 
+}
 getRequest(): void {
   this.auth.getRequest()
   .subscribe(requestLeave => this.requestLeave = requestLeave);
 }
-
-
-/*deleteRequest(username: string)
-{
-  this.auth.deleteRequest(username).subscribe(()=>{
-    alert("Request Deleted");
-});
-}
-*/
 deleteRequest(user: LeaveRequest): void {
   this.requestLeave = this.requestLeave.filter(h => h !== user);
-  this.auth.deleteRequest(user).subscribe(()=>{
-    alert("Request Deleted");
+  this.auth.deleteRequest(user).subscribe(() => {
+    console.log(user.username);
+    alert('Request Deleted');
 });
 }
-
+acceptRequest(user: LeaveRequest): void {
+  this.requestLeave = this.requestLeave.filter(h => h !== user);
+  this.auth.deleteRequest(user).subscribe(() => {
+    console.log(user);
+    alert('Request Accepted');
+});
+}
 }

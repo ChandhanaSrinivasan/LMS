@@ -1,38 +1,52 @@
-<div class="bg">
-  <form [formGroup]="applyForm" (ngSubmit)="apply(applyForm.value)">
+<div>
+  <form [formGroup]="applyForm" (ngSubmit)="addNewInput(newInput1.value, newInput2.value, newInput3.value, newInput4.value, newInput5.value)">
+      <input #newInput1 type="date" name="formDate" formControlName="fromDate">
+      <br>
+      <input #newInput2 type="date" name="toDate" formControlName="toDate">
+      <br>
+      <input #newInput3 type="text" name="noOfDays" formControlName="noOfDays">
+      <br>
+      <input #newInput4 type="text" name="typeOfLeave" formControlName="typeOfLeave">
+      <br>
+      <input #newInput5 type="text" name="description" formControlName="description">
+      <br>
+      <button class="applyButton" [disabled]="!applyForm.valid" type="submit">Apply</button>
+      <br>
+      <button class="applyButton"type="reset">Reset</button>
+  </form>
+
+</div>
+
+<!--<div class="bg">
+  <form (ngSubmit)="addNewInput(newInput1.value, newInput2.value, newInput3.value, newInput4.value, newInput5.value)">
     
     <div class="form-group">
       <label>From:</label>
-      <input type="date" name="formDate" formControlName="fromDate">
+      <input #newInput1 type="date" name="formDate" formControlName="fromDate">
     </div>
 
     <div class="form-group">
       <label>To:   </label>
-      <input type="date" name="toDate" formControlName="toDate" >
+      <input #newInput2 type="date" name="toDate" formControlName="toDate" >
     </div>
 
     <div class="form-group">
       <label>No. of Days:</label>
-      <input type="text" name="noOfDays" formControlName="noOfDays">
+      <input #newInput3 type="text" name="noOfDays" formControlName="noOfDays">
     </div>
     
     <div class="form-group">
       <label>Type of Leave:</label>
-      <input type="text" name="typeOfLeave" formControlName="typeOfLeave">
-     <!-- <select>
-        <option>Personal</option>
-        <option>Compensatory</option>
-        <option>LOP</option>
-        <option>Carry Forward</option>
-      </select>-->
+      <input #newInput4 type="text" name="typeOfLeave" formControlName="typeOfLeave">
+   
     </div>
 <br>
     <div class="form-group">
         <label>Descritpion:</label>
-        <input type="text" name="description" formControlName="description">
+        <input #newInput5 type="text" name="description" formControlName="description">
       </div>
   <button class="applyButton" [disabled]="!applyForm.valid" type="submit">Apply</button>
   <br>
   <button class="applyButton" type="reset">Reset</button>
   </form>
-</div>
+</div>-->

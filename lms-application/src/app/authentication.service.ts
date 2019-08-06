@@ -22,7 +22,7 @@ export class AuthenticationService {
  private urlUsers = 'api/users';
  private  urlLeaveDetail='api/leaveDetails';
   private urlRequest = 'api/requestLeave';  // URL to web api
-
+  username: any;
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -38,19 +38,26 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-
+ 
   login(formData: NgForm) {
-    return this.http.post<User>( `${this.urlUsers}/login`, formData).pipe(
+    /*return this.http.post<User>( `${this.urlUsers}/login`, formData).pipe(
       tap(user => {
-        alert("sdfs");
-        console.log(formData);
+       
+        console.log(`${this.urlUsers}/${this.username}`);
+        
         if (user) {
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
-
+        
+        
       }),
       catchError(this.handleError('login', []))
-    );
+    );*/
+    const url = `${this.urlUsers}/${this.username}`;
+  return this.http.get<User>(url).pipe(
+    tap(_ => console.log(`fetched hero username=${this.username}`)),
+    catchError(this.handleError<User>(`getHero username=${this.username}`))
+  );
   }
 
   apply(formData: NgForm) {
@@ -66,7 +73,7 @@ export class AuthenticationService {
   getleaveDetails (): Observable<LeaveDetails[]> {
     return this.http.get<LeaveDetails[]>(this.urlLeaveDetail)
       .pipe(
-        tap(_ => console.log('fetched leave Details')),
+        tap(_ => console.log('fetched leave')),
         catchError(this.handleError<LeaveDetails[]>('getleaveDetails', []))
       );
   }
@@ -74,7 +81,7 @@ export class AuthenticationService {
 getRequest (): Observable<LeaveRequest[]> {
   return this.http.get<LeaveRequest[]>(this.urlRequest)
     .pipe(
-      tap(_ => console.log('fetched user')),
+      tap(_ => console.log('fetched request')),
       catchError(this.handleError<LeaveRequest[]>('getRequest', []))
     );
 }
