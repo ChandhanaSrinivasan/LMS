@@ -12,8 +12,8 @@ export class RequestLeaveComponent implements OnInit {
   requestLeave: any[] = [];
   inputs = [];
 
-  add(newLeave: string) {
-    this.inputs.push(newLeave);
+  add(newInput: string) {
+    this.inputs.push(newInput);
   }
   constructor( private auth: AuthenticationService) { }
 
@@ -23,6 +23,7 @@ export class RequestLeaveComponent implements OnInit {
 getRequest(): void {
   this.auth.getRequest()
   .subscribe(requestLeave => this.requestLeave = requestLeave);
+  console.log(this.requestLeave);
 }
 deleteRequest(user: LeaveRequest): void {
   this.requestLeave = this.requestLeave.filter(h => h !== user);

@@ -16,7 +16,7 @@ export class ApplyLeaveComponent implements OnInit {
   request: LeaveRequest[];
   users: User[];
 
-  @Output() addNewLeave = new EventEmitter<string>();
+  @Output() emitNewInput = new EventEmitter<string>();
 
   constructor(private fb: FormBuilder, private auth: AuthenticationService, private router: Router) { }
 
@@ -31,13 +31,13 @@ export class ApplyLeaveComponent implements OnInit {
 
   }
   addNewInput(value1: string, value2: string, value3: string, value4: string, value5: string) {
-    this.addNewLeave.emit(value1);
-    this.addNewLeave.emit(value2);
-    this.addNewLeave.emit(value3);
-    this.addNewLeave.emit(value4);
-    this.addNewLeave.emit(value5);
+    this.emitNewInput.emit(value1);
+    this.emitNewInput.emit(value2);
+    this.emitNewInput.emit(value3);
+    this.emitNewInput.emit(value4);
+    this.emitNewInput.emit(value5);
     alert('Leave Applied');
-    this.router.navigate(['request-leave']);
+    console.log(value1, value2, value3, value4, value5);
 
   }
   /*apply(formData: NgForm) {

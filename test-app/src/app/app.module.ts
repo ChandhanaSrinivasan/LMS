@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { InMemoryWebApiModule, HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './in-memory-data.service';
+import { ApplyLeaveComponent } from './apply-leave/apply-leave.component';
+import { RequestLeaveComponent } from './request-leave/request-leave.component';
 
 
 
@@ -18,7 +20,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     AppComponent,
     LoginComponent,
     HomeComponent,
-  
+    ApplyLeaveComponent,
+    RequestLeaveComponent,
   ],
   imports: [
     BrowserModule,

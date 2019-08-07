@@ -1,4 +1,5 @@
-<table class="bg">
+<ul (emitNewInput)="add($event)"></ul> 
+<table>
     <tr>
       <th>Sno.</th>
       <th>Username</th>
@@ -9,15 +10,20 @@
       <th>Description</th>
     </tr>
    </table>
+<br>
 
-   <app-apply-leave (addNewInput)="add($event)"></app-apply-leave>
-    <ul>
-      <li *ngFor="let input of inputs">{{input}}</li>
+<a *ngFor="let input of inputs">{{input}} </a>
+   <ul>
+   <button class="accept"
+   (click)="acceptRequest(request)">accept</button>
+   <button class="delete"
+   (click)="deleteRequest(request)">x</button>
+
     </ul>
-    
+
     <ul class="requests">
       <li *ngFor="let request of requestLeave">
-      {{request.Sno}}
+       {{request.Sno}}
        {{request.username}}
        {{request.from}}
        {{request.to}}
@@ -32,3 +38,4 @@
       </li>
     </ul>
     
+ 
