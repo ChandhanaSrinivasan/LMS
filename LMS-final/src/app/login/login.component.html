@@ -1,0 +1,26 @@
+<div >
+        <p *ngIf="message" class="text-center error">{{message}}</p>
+      <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.username)">
+          <div  [ngClass]="{ 'has-error': submitted && formControl.username.errors }">
+              <label>Username:</label>
+              <div>
+                  <input type="text" class="form-control" formControlName="username" />
+                  <div *ngIf="submitted && formControl.username.errors" class="help-block">
+                        <div *ngIf="formControl.username.errors.required">Username is required</div>
+                  </div>
+              </div>
+          </div>
+          <div  [ngClass]="{ 'has-error': submitted && formControl.password.errors }">
+            <label>Password:</label>
+            <div>
+                <input type="password" class="form-control" formControlName="password"/>
+                <div *ngIf="submitted && formControl.password.errors" class="help-block">
+                        <div *ngIf="formControl.password.errors.required">Password is required</div>
+                </div>
+            </div>
+          </div>
+          <div>
+            <button type="submit">Login</button>
+          </div>
+      </form>
+</div>
