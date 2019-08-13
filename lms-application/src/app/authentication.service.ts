@@ -38,8 +38,8 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-
-  login(formData: NgForm) {
+/* 
+  login(username : string) {
     /*return this.http.post<User>( `${this.urlUsers}/login`, formData).pipe(
       tap(user => {
 
@@ -51,14 +51,19 @@ export class AuthenticationService {
       }),
       catchError(this.handleError('login', []))
     );*/
-    const url = `${this.urlUsers}/${this.username}`;
+    /*const url = `${this.urlUsers}/${this.username}`;
     return this.http.get<User>(url).pipe(
     tap(_ => console.log(`fetched hero username=${this.username}`)),
     catchError(this.handleError<User>(`getHero username=${this.username}`))
   );
-  }
-
-  apply(formData: NgForm) {
+ return console.log(`api/users/?name=${this.username}`)
+  } */
+  
+  logout(): void {
+    localStorage.setItem('isLoggedIn', "false");
+    localStorage.removeItem('token');
+  } 
+  apply(formData: NgForm)  {
     return this.http.post<User>( `${this.urlUsers}/apply-leave`, formData).pipe(
       tap(user => {
         console.log(user);

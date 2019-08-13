@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
-import { AuthenticationService } from '../authentication.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '../user';
+import { AuthenticationService } from '../authentication.service';
+
 
 @Component({
   selector: 'app-login',
@@ -10,28 +12,44 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  model: User = { username: "user", password: "user" };
   loginForm: FormGroup;
-  submitted = false;
+  message: string;
+  returnUrl: string;
 
-  get valid() {
-    return this.loginForm.controls;
-  }
-
-  constructor(private fb: FormBuilder, private auth: AuthenticationService, private router: Router
-  ) { }
+  constructor(private formBuilder: FormBuilder,private router: Router, public authService: AuthenticationService) { }
 
   ngOnInit() {
-    this.loginForm = this.fb.group({
-      username : [null, Validators.required],
-      password : [null, Validators.required],
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
     });
-
+    this.returnUrl = '/home';
+    
   }
 
-  login(formData: NgForm) {
-    this.submitted = true;
-    this.auth.login(formData).subscribe( (user) => { this.router.navigate(['home']); });
 
-  }
+  get formControl() { 
+    return this.loginForm.controls;
+   }
+
+  
+  login(username : string) {
+    if (this.loginForm.invalid) {
+        return false;
+    }
+    else{
+      if(this.formControl.username.value == this.model.username && this.formControl.password.value == this.model.password){
+        alert("Login successful");
+        
+        localStorage.setItem('isLoggedIn', "true");
+        localStorage.setItem('token', this.formControl.username.value);
+        this.router.navigate([this.returnUrl]);
+      }
+      else{
+        this.message = "Username or Password incorrect";
+      }
+    }    
+}
 
 }
