@@ -71,8 +71,5 @@ apply(fromDate: string, toDate:string, noOfDays:string, typeOfLeave: string, des
 
 console.log(fromDate,toDate);
 }
-request()
-{
-  console.log(this.From)
-}
+
 }

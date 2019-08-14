@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   
   logout(): void {
     console.log(this.id);
-    console.log("Logout"); 
+    alert("Logout"); 
     this.authService.logout();
     this.router.navigate(['/login']);
   }

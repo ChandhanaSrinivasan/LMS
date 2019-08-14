@@ -12,10 +12,10 @@ import { AuthenticateService } from '../authenticate.service';
 })
 export class LoginComponent implements OnInit {
 
-  model: User = { username: "user", password: "user" };
+  users: User = { username: "user", password: "user" };
   loginForm: FormGroup;
   message: string;
-  returnUrl: string;
+  goto: string;
 
   constructor(private formBuilder: FormBuilder,private router: Router, public authService: AuthenticateService) { }
 
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.returnUrl = '/home';
+    this.goto = '/home';
     
   }
 
@@ -39,12 +39,12 @@ export class LoginComponent implements OnInit {
         return false;
     }
     else{
-      if(this.formControl.username.value == this.model.username && this.formControl.password.value == this.model.password){
+      if(this.formControl.username.value == this.users.username && this.formControl.password.value == this.users.password){
         alert("Login successful");
         
         localStorage.setItem('isLoggedIn', "true");
         localStorage.setItem('token', this.formControl.username.value);
-        this.router.navigate([this.returnUrl]);
+        this.router.navigate([this.goto]);
       }
       else{
         this.message = "Username or Password incorrect";

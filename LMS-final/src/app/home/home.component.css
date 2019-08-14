@@ -6,7 +6,16 @@
     text-align: center;
   }
 
-  
+.btn
+{
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color:rgb(59, 121, 236);
+  border-radius: 4px;
+  color:  white;
+}
 
   .style {
     background-color: rgb(7, 74, 197);
@@ -28,4 +37,4 @@
     border-radius: 4px;
     color:  white;
   }
-  
+ 
