@@ -1,1 +1,19 @@
-<p>leave-summary works!</p>
+<a  (click)="logout()">Logout</a>  
+<table class="table">
+        <tr>
+          <th>From</th>
+          <th>To</th>
+          <th>Days</th>
+          <th>Type</th>
+          <th>Description</th> 
+        </tr>
+      <tr *ngFor="let leave of leaveDetails">
+        <td>{{leave.from}}</td>
+        <td>{{leave.to}}</td>
+        <td>{{leave.days}}</td>
+        <td>{{leave.type}}</td>
+        <td>{{leave.description}}</td>
+      </tr>
+   
+</table>
+         

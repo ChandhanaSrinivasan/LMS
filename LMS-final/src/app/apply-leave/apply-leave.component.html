@@ -1,1 +1,23 @@
-<p>apply-leave works!</p>
+<div class="bg">
+      <form [formGroup]="applyForm" (ngSubmit)="apply(fromDate.value, toDate.value, noOfDays.value, typeOfLeave.value, description.value)">
+          <label>From:</label>
+          <input type="date" class="form-control" #fromDate />
+          <br><br>
+          <label>To:</label>
+          <input type="date" class="form-control" #toDate/>      
+          <br><br>
+          <label>No of Days:</label>
+          <input type="text" class="form-control" #noOfDays />
+          <br><br>
+          <label>Type Of Leave:</label>
+          <input type="text" class="form-control" #typeOfLeave />
+          <br><br>
+          <label>Description:</label>
+          <input type="text" class="form-control" #description />        
+          <br><br>
+          <div>
+            <button  type="submit">Apply</button>
+            <button type="reset">Reset</button>
+          </div>
+      </form>
+</div>

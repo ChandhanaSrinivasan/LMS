@@ -1,6 +1,6 @@
-<div >
+<div class="bg">
         <p *ngIf="message" class="text-center error">{{message}}</p>
-      <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.username)">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
           <div  [ngClass]="{ 'has-error': submitted && formControl.username.errors }">
               <label>Username:</label>
               <div>
@@ -10,6 +10,7 @@
                   </div>
               </div>
           </div>
+          <br>
           <div  [ngClass]="{ 'has-error': submitted && formControl.password.errors }">
             <label>Password:</label>
             <div>
@@ -19,6 +20,7 @@
                 </div>
             </div>
           </div>
+          <br>
           <div>
             <button type="submit">Login</button>
           </div>

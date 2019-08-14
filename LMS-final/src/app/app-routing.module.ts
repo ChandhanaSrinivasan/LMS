@@ -9,6 +9,7 @@ import { LeaveSummaryComponent } from './leave-summary/leave-summary.component';
 import { RequestLeaveComponent } from './request-leave/request-leave.component';
 
 
+
 const routes: Routes = [
   { path: 'login', 
   component: LoginComponent },
@@ -27,9 +28,10 @@ const routes: Routes = [
     component: LeaveSummaryComponent,
     canActivate: [AuthGuard]
   },
-  { path: 'leave-request',
+  {
+    path: 'request-leave',
     component: RequestLeaveComponent,
-   // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   }
   
 ];

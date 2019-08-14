@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
    }
 
   
-  login(username : string) {
+  login() {
     if (this.loginForm.invalid) {
         return false;
     }
