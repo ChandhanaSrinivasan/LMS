@@ -1,20 +1,27 @@
-<div class="bg">
+<div class="container-fluid">
       <form [formGroup]="applyForm" (ngSubmit)="apply(fromDate.value, toDate.value, noOfDays.value, typeOfLeave.value, description.value)">
-          <label>From:</label>
+          <label>From: </label>
           <input type="date" class="form-control" #fromDate />
-          <br><br>
-          <label>To:</label>
+          <br>
+          <label>To: </label>
           <input type="date" class="form-control" #toDate/>      
-          <br><br>
-          <label>No of Days:</label>
+          <br>
+          <label>No of Days: </label>
           <input type="text" class="form-control" #noOfDays />
+          <br>
+          <label>Type Of Leave: </label><br>
+          
+          
+          <select #typeOfLeave>
+                <option value="Personal">Personal</option>
+                <option value="Compensatory">Compensatory</option>
+                <option value="LOP">LOP</option>
+                <option value="Carry Forward">Carry Forward</option>
+              </select>
           <br><br>
-          <label>Type Of Leave:</label>
-          <input type="text" class="form-control" #typeOfLeave />
-          <br><br>
-          <label>Description:</label>
+          <label>Description: </label>
           <input type="text" class="form-control" #description />        
-          <br><br>
+          <br>
           <div>
             <button  type="submit">Apply</button>
             <button type="reset">Reset</button>

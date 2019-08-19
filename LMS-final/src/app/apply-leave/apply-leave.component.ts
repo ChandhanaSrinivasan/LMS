@@ -31,7 +31,7 @@ export class ApplyLeaveComponent implements OnInit {
     this.applyEvent.emit(no);
     this.applyEvent.emit(type);
     this.applyEvent.emit(description);
-    
+    this.db.apply(from,to,no,type,description);
   }
 
 }

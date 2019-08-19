@@ -1,27 +1,33 @@
-
-        <p *ngIf="message">{{message}}</p>
-      <form class="bg" [formGroup]="loginForm" (ngSubmit)="login()">
-          <div  [ngClass]="{ 'has-error': submitted && formControl.username.errors }">
-              <label>Username:</label>
-              <div>
-                  <input type="text" class="form-control" formControlName="username" />
-                  <div *ngIf="submitted && formControl.username.errors" >
-                        <div *ngIf="formControl.username.errors.required">Username is required</div>
-                  </div>
+<div class="container-fluid">
+    <p *ngIf="message">{{message}}</p>
+  <form  [formGroup]="loginForm" (ngSubmit)="login()">
+      <div  [ngClass]="{ 'has-error': submitted && formControl.username.errors }">
+          <br><br><br><br><br><br><br>
+        <div>
+             <label>Username :</label>
+        
+              <input type="text" class="form-control" formControlName="username" autofocus>
+              <div *ngIf="submitted && formControl.username.errors" >
+                    <div *ngIf="formControl.username.errors.required">Username is required</div>
               </div>
           </div>
-          <br>
-          <div  [ngClass]="{ 'has-error': submitted && formControl.password.errors }">
-            <label>Password:</label>
+      </div>
+     
+      <div  [ngClass]="{ 'has-error': submitted && formControl.password.errors }">
             <div>
-                <input type="password" class="form-control" formControlName="password"/>
-                <div *ngIf="submitted && formControl.password.errors">
-                        <div *ngIf="formControl.password.errors.required">Password is required</div>
-                </div>
+                <label>Password :</label>
+     
+            <input type="password" class="form-control" formControlName="password" autofocus>
+            <div *ngIf="submitted && formControl.password.errors">
+                    <div *ngIf="formControl.password.errors.required">Password is required</div>
             </div>
-          </div>
-          <br>
-          <div>
-            <button type="submit">Login</button>
-          </div>
-      </form>
+        </div>
+      </div>
+     
+      <div>
+       <button class="btn btn-md btn-primary " type="submit">Login</button>
+      </div>
+  </form>
+
+ 
+</div>

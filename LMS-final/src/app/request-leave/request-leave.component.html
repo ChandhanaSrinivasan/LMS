@@ -1,6 +1,8 @@
-<div class="bg">
-        <app-apply-leave (applyEvent)="addItem($event)"></app-apply-leave>
-        <br>
+<div class="container-fluid">
+    <nav> <a  (click)="logout()">Logout</a>  </nav>
+    <br>
+ <app-apply-leave (applyEvent)="addRequest($event)"></app-apply-leave>
+ <br>
 <table class="table">
     <tr>
       <th>Username</th>
@@ -12,14 +14,13 @@
       <th>Approval</th>
     </tr>
 
-            <td *ngFor="let request of requests">
-                {{request}}
-            </td>
-            <button class="accept"
-            (click)="acceptRequest(request)">accept</button>
-          <button class="delete"
-            (click)="deleteRequest(request)">x</button>
-                  <br>
+  {{id}}
+    <td *ngFor="let request of requests">
+      {{request}} 
+    </td>
+    <button class="accept" (click)="acceptRequest(request)">accept</button>
+    <button class="delete" (click)="deleteRequest(request)">x</button>
+
       <tr *ngFor="let request of requestLeave">
       <td>{{request.username}}</td>
      <td>{{request.from}}</td>
@@ -27,11 +28,8 @@
      <td>{{request.days}}</td>
      <td>{{request.type}}</td>
      <td>{{request.description}}</td>
-       <td> <button class="accept"
-          (click)="acceptRequest(request)">accept</button>
-        <button class="delete"
-          (click)="deleteRequest(request)">x</button></td>
+     <td> <button class="accept" (click)="acceptRequest(request)">accept</button>
+     <button class="delete" (click)="deleteRequest(request)">x</button></td>
     </tr>
 </table>
-    
 </div>

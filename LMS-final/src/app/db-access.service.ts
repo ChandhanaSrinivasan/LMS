@@ -63,13 +63,13 @@ getleaveDetails(): Observable<LeaveDetails[]> {
 }
 apply(fromDate: string, toDate:string, noOfDays:string, typeOfLeave: string, description: string)
 {
-  this.From = fromDate;
+  /* this.From = fromDate;
   this.To = toDate;
   this.NoOfDays = noOfDays;
   this.Type = typeOfLeave;
-  this.Description = description;
+  this.Description = description; */
 
-console.log(fromDate,toDate);
+console.log(fromDate,toDate,noOfDays,typeOfLeave, description);
 }
 
 }
