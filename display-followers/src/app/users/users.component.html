@@ -1,0 +1,21 @@
+<div class="row">
+
+    <template [ngIf]="!selectedUser.id"></template>
+      <div *ngFor="let user of users" class="col-xs-6 col-md-2">
+
+        <div class="thumbnail">
+          <img [src]="user.avatar_url">
+          <div class="caption">
+            <h4>{{user.login}}</h4>
+            <p>
+              <button (click)="viewUser(user)" class="btn btn-primary" role="button">More info</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+
+
+  </div>
+
+  <hr>
